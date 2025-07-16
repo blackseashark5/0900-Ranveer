@@ -110,8 +110,7 @@ Contents:
 ## Contact Info
 
 Ranveer  
-Email: [your-email@example.com]  
-Phone: [your-number]
+Email: [ranveer4us@gmail.com]  
 
 ---
 
