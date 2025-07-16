@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.5)
+project(NXP_AIM_INDIA_2025)
+
+find_package(ament_cmake REQUIRED)
+find_package(rclpy REQUIRED)
+find_package(std_msgs REQUIRED)
+
+install(DIRECTORY launch rviz urdf config worlds models
+  DESTINATION share/${PROJECT_NAME}
+)
+
+install(PROGRAMS
+  scripts/shelf_data_publisher.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+ament_package()

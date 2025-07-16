@@ -1,0 +1,21 @@
+root main_tree_to_execute=NavigateToPose
+  BehaviorTree ID=NavigateToPose
+    Sequence name=root_sequence
+      Fallback name=NavigationFallback
+        Sequence name=NavigationWithRecovery
+          CheckBattery level=30.0
+          PipelineSequence
+            ComputePathToPose goal={goal} planner_id=GridBased 
+            SmoothPath input_path={path} output_path={smoothed_path} 
+            FollowPath path={smoothed_path} controller_id=FollowPath 
+          PipelineSequence
+        Sequence
+        Fallback name=RecoveryActions
+          Spin recovery_name=spin 
+          BackUp recovery_name=backup 
+        Fallback
+      Fallback
+      ClearCostmap 
+    Sequence
+  BehaviorTree
+root

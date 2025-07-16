@@ -1,0 +1,13 @@
+<root main_tree_to_execute="NavigateThroughPoses">
+  <BehaviorTree ID="NavigateThroughPoses">
+    <Sequence name="root_sequence">
+      <CheckPoseArray />
+      <PipelineSequence>
+        <ComputePathThroughPoses planner_id="GridBased" />
+        <SmoothPath input_path="{path}" output_path="{smoothed_path}" />
+        <FollowPath path="{smoothed_path}" controller_id="FollowPath" />
+      </PipelineSequence>
+      <ClearCostmap />
+    </Sequence>
+  </BehaviorTree>
+</root>
